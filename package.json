@@ -1,0 +1,22 @@
+{
+  "name": "readmeauto",
+  "version": "1.0.0",
+  "description": "a readME generator ",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Champagnest/readMEauto.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Champagnest/readMEauto/issues"
+  },
+  "homepage": "https://github.com/Champagnest/readMEauto#readme",
+  "dependencies": {
+    "inquirer": "^8.2.3"
+  }
+}
