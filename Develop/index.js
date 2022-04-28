@@ -22,7 +22,7 @@ const questions = [
         name: 'description',
         message: 'Enter a description for your project (Required)',
         validate: descriptionInput => {
-          if (descriptionInputt) {
+          if (descriptionInput) {
             return true;
           } else {
             console.log('Please enter your project description!');
@@ -32,16 +32,89 @@ const questions = [
       },
       {
         type: 'input',
-        name: 'tableOfContents',
-        message: 'Would you like to enter a table of contents?',
-        default: true
+        name: 'usage',
+        message: 'Provide text and examples of app usage here.',
+       validate: usageInput => {
+           if (usageInput) {
+               return true;
+           } else {
+                console.log('Please add to this field');
+                return false;
+           }
+       }
       },
       {
         type: 'input',
         name: 'installation',
-        message: 'Provide some information about yourself:',
-        when: ({ confirminstallation }) => confirminstallation
+        message: 'Please provide steps for installing',
+        validate: installInput => {
+            if (installInput) {
+                return true;
+            } else {
+                console.log('Please add to this field');
+                return false;
+            }
+        }
+       
+      },
+      {
+          type: 'list',
+          name: 'license',
+          message: 'Pick a license',
+          choices: ['IPL','ISC', 'MIT', 'MPL', 'ODC', 'perl', 'unlicense',]
+      },
+      {
+        type: 'input',
+        name: 'contributions',
+        message: 'What are the rules for outside contributions?',
+        validate: contributionsInput => {
+            if (contributionsInput) {
+                return true;
+            } else {
+                console.log('please add to this field');
+                return false;
+            }
+        }
+      },
+      {
+        type: 'input',
+        name: 'tests',
+        message: 'How do we test this?',
+        validate: testsInput => {
+            if (testsInput) {
+              return true;
+            } else {
+              console.log('please add to this field');
+              return false;
+            }
+          }
+      },
+      {
+        type: 'input',
+        name: 'github',
+        message: 'What is your GitHub username?',
+        validate: githubInput => {
+          if (githubInput) {
+            return true;
+          } else {
+            console.log('please add to this field');
+            return false;
+          }
+        }
+    },
+    {
+      type: 'input',
+      name: 'email',
+      message: 'Add your email here',
+      validate: emailInput => {
+        if (emailInput) {
+          return true;
+        } else {
+          console.log('please add to this field');
+          return false;
+        }
       }
+  }
 ];
 
 // TODO: Create a function to write README file
@@ -53,4 +126,7 @@ function init() {
 }
 
 // Function call to initialize app
-init();
+init()
+.then(questions =>{
+    
+});

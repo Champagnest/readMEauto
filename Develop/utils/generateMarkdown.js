@@ -6,7 +6,7 @@ function renderLicenseBadge(license) {
     return '';
   }
 switch (license) {
-  case 'IBM':
+  case 'IPL':
     return '[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)]'
     break;
 
@@ -40,7 +40,7 @@ switch (license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   switch (license) {
-    case 'IBM':
+    case 'IPL':
       return '(https://opensource.org/licenses/IPL-1.0)'
       break;
   
@@ -89,7 +89,34 @@ function generateMarkdown(data) {
   ${data.description}
 
   ## Table of Contents
-  *
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [License](#license)
+  * [Contributions](#contributions)
+  * [Tests](#tests)
+  * [Questions](#questions)
+  
+  ## Installation
+  ${data.install}
+
+  ## Usage
+  ${data.usage}
+
+  ## License
+  ${renderLicenseLink(data.license)}
+  ${renderLicenseSection(data.license)}
+
+  ## Contributions
+  ${data.contributions}
+
+  ## Tests
+  ${data.tests}
+
+  ## Questions
+  Github: [${data.github}](https://github.com/${data.github}/)
+
+  Questions? you can reach me at ${data.email}
+
 
 `;
 }
