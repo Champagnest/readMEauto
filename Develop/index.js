@@ -119,7 +119,7 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
+function writeToFile(data) {
     fs.writeFile('./readme.md', data, (err) => {
         if (err)
         console.log(err);
@@ -141,13 +141,12 @@ function init() {
       return writeToFile(readmeData);
     })
     .catch(err => {
-      console.log(readmeData)
       console.log(err);
     });
 };
 
 // Function call to initialize app
-// init() 
+init() 
 // .then(questions =>{
 //     const readmeData = generateMarkdown(questions);
 
