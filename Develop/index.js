@@ -131,18 +131,33 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-    return inquirer.prompt(questions);
-}
+    return inquirer.prompt(questions)
+    .then(questions =>{
+      const readmeData = generateMarkdown(questions);
+      return readmeData;
+      
+    })
+    .then(readmeData => {
+      return writeToFile(readmeData);
+    })
+    .catch(err => {
+      console.log(readmeData)
+      console.log(err);
+    });
+};
 
 // Function call to initialize app
-init()
-.then(questions =>{
-    const readmeData = generateMarkdown(questions);
-    return readmeData;
-  })
-  .then(readmeData => {
-    return writeToFile(readmeData);
-  })
-  .catch(err => {
-    console.log(err);
-});
+// init() 
+// .then(questions =>{
+//     const readmeData = generateMarkdown(questions);
+
+//     return readmeData;
+    
+//   })
+//   .then(readmeData => {
+//     return writeToFile(readmeData);
+//   })
+//   .catch(err => {
+//     console.log(readmeData)
+//     console.log(err);
+// });
